@@ -8,7 +8,7 @@ namespace Flunt.Tests
     {
         [TestMethod]
         [TestCategory("BoolValidation")]
-        public void IsTrue()
+        public void IsTrue_Should_InValidAndWithNotifications_When_False()
         {
             var wrong = new Contract()
                 .Requires()
@@ -16,7 +16,12 @@ namespace Flunt.Tests
 
             Assert.AreEqual(false, wrong.Valid);
             Assert.AreEqual(1, wrong.Notifications.Count);
+        }
 
+        [TestMethod]
+        [TestCategory("BoolValidation")]
+        public void IsTrue_Should_ValidAndWithoutNotifications_When_True()
+        {
             var right = new Contract()
                 .Requires()
                 .IsTrue(true, "bool", "Bool is false");
@@ -25,7 +30,7 @@ namespace Flunt.Tests
 
         [TestMethod]
         [TestCategory("BoolValidation")]
-        public void IsFalse()
+        public void IsFalse_Should_InValidAndWithNotifications_When_False()
         {
             var wrong = new Contract()
                 .Requires()
@@ -33,7 +38,12 @@ namespace Flunt.Tests
 
             Assert.AreEqual(false, wrong.Valid);
             Assert.AreEqual(1, wrong.Notifications.Count);
+        }
 
+        [TestMethod]
+        [TestCategory("BoolValidation")]
+        public void IsFalse_Should_ValidAndWithoutNotifications_When_False()
+        {
             var right = new Contract()
                 .Requires()
                 .IsFalse(false, "bool", "Bool is true");

@@ -1,8 +1,5 @@
-﻿using Flunt.Validations;
+﻿using Flunt.Notifications;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using Flunt.Notifications;
 
 namespace Flunt.Tests
 {
@@ -11,7 +8,7 @@ namespace Flunt.Tests
     {
         [TestMethod]
         [TestCategory("Notifiable")]
-        public void AddNotificationForOneNotifiable()
+        public void AddNotification_Must_Add_When_OneByOne()
         {
             var name =new Name();
             var cus = new Customer();
@@ -25,7 +22,7 @@ namespace Flunt.Tests
 
         [TestMethod]
         [TestCategory("Notifiable")]
-        public void AddNotificationForMultipleNotifiable()
+        public void AddNotification_Must_Add_When_AllAtOnce()
         {
             var name = new Name();
             var customer = new Customer();

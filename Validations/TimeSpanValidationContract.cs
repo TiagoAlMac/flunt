@@ -4,7 +4,7 @@ namespace Flunt.Validations
 {
     public partial class Contract
     {
-        public Contract IsGreaterThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsGreaterThan(TimeSpan val, TimeSpan comparer, string property, string message)
         {
             if (val <= comparer)
                 AddNotification(property, message);
@@ -12,7 +12,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public Contract IsGreaterOrEqualsThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsGreaterOrEqualsThan(TimeSpan val, TimeSpan comparer, string property, string message)
         {
             if (val < comparer)
                 AddNotification(property, message);
@@ -20,7 +20,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public Contract IsLowerThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsLowerThan(TimeSpan val, TimeSpan comparer, string property, string message)
         {
             if (val >= comparer)
                 AddNotification(property, message);
@@ -28,7 +28,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public Contract IsLowerOrEqualsThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsLowerOrEqualsThan(TimeSpan val, TimeSpan comparer, string property, string message)
         {
             if (val > comparer)
                 AddNotification(property, message);
@@ -36,17 +36,9 @@ namespace Flunt.Validations
             return this;
         }
 
-        public Contract IsBetween(DateTime val, DateTime from, DateTime to, string property, string message)
+        public Contract IsBetween(TimeSpan val, TimeSpan from, TimeSpan to, string property, string message)
         {
             if (!(val >= from && val <= to))
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsNullOrNullable(DateTime? val, string property, string message)
-        {
-            if (!val.HasValue)
                 AddNotification(property, message);
 
             return this;

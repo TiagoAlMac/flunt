@@ -266,7 +266,7 @@
 
         public Contract IsNullOrNullable(int? val, string property, string message)
         {
-            if (!val.HasValue)
+            if (val == null || !val.HasValue)
                 AddNotification(property, message);
 
             return this;

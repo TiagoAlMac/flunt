@@ -9,7 +9,7 @@ namespace Flunt.Tests
     {
         [TestMethod]
         [TestCategory("ObjectValidation")]
-        public void IsNull()
+        public void IsNull_Should_InvalidAndWithNotifications_When_NotNull()
         {
             object obj = 10;
             var contract = new Contract()
@@ -22,7 +22,7 @@ namespace Flunt.Tests
 
         [TestMethod]
         [TestCategory("ObjectValidation")]
-        public void IsNotNull()
+        public void IsNotNull_Should_InvalidAndWithNotifications_When_Null()
         {
             object obj = null;
             var contract = new Contract()
@@ -35,7 +35,7 @@ namespace Flunt.Tests
 
         [TestMethod]
         [TestCategory("ObjectValidation")]
-        public void AreEqual()
+        public void AreEqual_Should_InvalidAndWithNotifications_When_AreNotEqual()
         {
             object obj = 10;
             object obj1 = 20;
@@ -46,21 +46,11 @@ namespace Flunt.Tests
             Assert.IsTrue(contract.Invalid);
             Assert.AreEqual(1, contract.Notifications.Count);
             Assert.AreEqual("Object is not equal", contract.Notifications.First().Message);
-
-            obj = 20.10;
-            obj1 = "string";
-
-            contract = new Contract()
-                .AreEquals(obj, obj1, "object", "Object is not equal");
-
-            Assert.IsTrue(contract.Invalid);
-            Assert.AreEqual(1, contract.Notifications.Count);
-            Assert.AreEqual("Object is not equal", contract.Notifications.First().Message);
         }
 
         [TestMethod]
         [TestCategory("ObjectValidation")]
-        public void AreNotEqual()
+        public void AreNotEqual_Should_InvalidAndWithNotifications_When_AreEqual()
         {
             object obj = 10;
             object obj1 = 10;

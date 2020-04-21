@@ -277,5 +277,13 @@
         }
 
         #endregion Between
+
+        public Contract IsNullOrNullable(long? val, string property, string message)
+        {
+            if (!val.HasValue)
+                AddNotification(property, message);
+
+            return this;
+        }
     }
 }

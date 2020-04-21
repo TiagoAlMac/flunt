@@ -280,7 +280,7 @@
 
         public Contract IsNullOrNullable(decimal? val, string property, string message)
         {
-            if (!val.HasValue)
+            if (val == null || !val.HasValue)
                 AddNotification(property, message);
 
             return this;
